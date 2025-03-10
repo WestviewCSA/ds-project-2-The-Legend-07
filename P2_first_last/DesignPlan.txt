@@ -4,3 +4,18 @@ Due: 3/12/25: 11:59pm
 
 After reading the specs, start populating a list of things
 you think you might have to do to finish this project.
+
+
+1) Read the specs - understand the project
+2) Take input input in map or coordinate format
+3) Create maze m-rows by n-columns
+4) May only move left, right, up, down, not diagonal
+5) Use an approach - stack, queue, or other
+6) Output the path taken to get to end
+7) Measure runtime
+
+
+1) Read the specs - understand the project
+2) Understand map-based input files
+
+
