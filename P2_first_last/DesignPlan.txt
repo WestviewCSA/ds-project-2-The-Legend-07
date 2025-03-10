@@ -17,5 +17,6 @@ you think you might have to do to finish this project.
 
 1) Read the specs - understand the project
 2) Understand map-based input files
+3) Learn Stacks, Queues, 3D Arrays
 
 
