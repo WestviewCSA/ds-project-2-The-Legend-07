@@ -8,14 +8,13 @@ public class p2 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		readMap("Test5");
-		
-		
+		Map[] map = readMap("Test5");
+		System.out.println(map[1]);
 	}
 	
 	
 	
-	public static void readMap(String filename) {
+	public static Map[] readMap(String filename) {
 		
 		File mapFile = new File(filename);
 		try {
@@ -26,15 +25,18 @@ public class p2 {
 			int numRooms = scan.nextInt();
 			
 			int currRoom = 0;
-			Tile[][][] map = new Tile[numRooms][numRows][numCols];
+//			Tile[][][] map = new Tile[numRooms][numRows][numCols];
+			Map[] fullMap = new Map[numRooms];
 			
 			//process the map!
 			
 			while(currRoom < numRooms) {
 				
 				int rowIndex = 0;
+				Tile[][] currMap = new Tile[numRows][numCols];
 
 				while (rowIndex < numRows) {
+										
 					//grab a line (one row of the map)
 					String row = scan.nextLine();
 					if (row.length()>0) {
@@ -42,19 +44,28 @@ public class p2 {
 							char el = row.charAt(i);
 							Tile obj = new Tile(rowIndex, i, el);
 	//						System.out.println(obj.getType());
-							map[currRoom][rowIndex][i] = obj;
+							currMap[rowIndex][i] = obj;
 						}
-						System.out.println(Arrays.deepToString(map));
+						System.out.println(Arrays.deepToString(currMap));
 						rowIndex++;
 					}
 				}
+				
+				Map map = new Map(currMap, currRoom);
+				fullMap[currRoom] = map;
 				currRoom++;
 			}
+			
+			System.out.println(Arrays.deepToString(fullMap));
+			
+			return fullMap;
 			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return null;
 		}
+
 	}
 
 }
