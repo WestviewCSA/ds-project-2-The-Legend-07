@@ -102,15 +102,12 @@ public class p2 {
 				//2d array of tiles - making current map from input
 				Tile[][] currMap = new Tile[numRows][numCols];
 				
-				System.out.println(scan.next() +
-				scan.next() +
-				scan.nextInt() +
-				scan.nextInt() +
-				scan.next() +
-				scan.next() +
-				scan.nextInt());
+//	//	//	//	//as of now this doesn't account for multiple rooms - need to change this
 				while (scan.hasNextLine()) {
-
+					char el = scan.next().charAt(0);
+					Tile obj = new Tile(scan.next().charAt(0), scan.nextInt(), scan.nextInt());
+					scan.next();
+					currMap[]
 				}
 				
 			}

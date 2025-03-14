@@ -11,6 +11,13 @@ public class Tile {
 		this.type = type;
 	}
 	
+	public Tile(char type, int row, int col) {
+		super();
+		this.type = type;
+		this.row = row;
+		this.col = col;
+	}
+	
 	public int getRow() {
 		return row;
 	}
