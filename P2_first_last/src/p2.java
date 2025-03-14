@@ -9,7 +9,11 @@ public class p2 {
 		// TODO Auto-generated method stub
 		
 		Map[] map = readMap("Test5");
-		System.out.println(map[1]);
+//		System.out.println(map[1]);
+//		char temp = map[1].getTile(1, 1);
+//		System.out.println(temp);
+		
+//		readMapCoor("TestC1");
 	}
 	
 	
@@ -20,19 +24,23 @@ public class p2 {
 		try {
 			Scanner scan = new Scanner(mapFile);
 			
+			//getting input for rows, cols, rooms
 			int numRows = scan.nextInt();
 			int numCols = scan.nextInt();
 			int numRooms = scan.nextInt();
 			
+			//setting initial room = 0
 			int currRoom = 0;
 //			Tile[][][] map = new Tile[numRooms][numRows][numCols];
+			
+			//creating an array of map objects - each map has 2d array of tiles, basically each map of the current room
 			Map[] fullMap = new Map[numRooms];
 			
 			//process the map!
-			
 			while(currRoom < numRooms) {
 				
 				int rowIndex = 0;
+				//2d array of tiles - making current map from input
 				Tile[][] currMap = new Tile[numRows][numCols];
 
 				while (rowIndex < numRows) {
@@ -51,8 +59,11 @@ public class p2 {
 					}
 				}
 				
+				//storing current map as map object
 				Map map = new Map(currMap, currRoom);
+				//adding the current map to array of map objects
 				fullMap[currRoom] = map;
+				//going to next room
 				currRoom++;
 			}
 			
@@ -67,5 +78,49 @@ public class p2 {
 		}
 
 	}
+	
+	
+	
+
+	public static void readMapCoor(String filename) {
+		
+		//for the coor map input files they don't give you ".", insert where empty
+		File mapFile = new File(filename);
+		try {
+			Scanner scan = new Scanner(mapFile);
+			
+			//getting input for rows, cols, rooms
+			int numRows = scan.nextInt();
+			int numCols = scan.nextInt();
+			int numRooms = scan.nextInt();
+			
+			//setting initial room = 0
+			int currRoom = 0;
+			
+			while (currRoom < numRooms) {
+				
+				//2d array of tiles - making current map from input
+				Tile[][] currMap = new Tile[numRows][numCols];
+				
+				System.out.println(scan.next() +
+				scan.next() +
+				scan.nextInt() +
+				scan.nextInt() +
+				scan.next() +
+				scan.next() +
+				scan.nextInt());
+				while (scan.hasNextLine()) {
+
+				}
+				
+			}
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
 
 }

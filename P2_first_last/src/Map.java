@@ -11,6 +11,12 @@ public class Map {
 	}
 	
 	
+	public char getTile(int row, int col) {
+	    return map[row][col].getType();
+	}
+	
+	
+	
 	public Tile[][] getMap() {
 		return map;
 	}
