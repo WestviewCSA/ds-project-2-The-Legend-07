@@ -13,7 +13,7 @@ public class p2 {
 //		char temp = map[1].getTile(1, 1);
 //		System.out.println(temp);
 		
-//		readMapCoor("TestC1");
+		readMapCoor("TestC2");
 	}
 	
 	
@@ -97,18 +97,47 @@ public class p2 {
 			//setting initial room = 0
 			int currRoom = 0;
 			
+			//creating an array of map objects - each map has 2d array of tiles, basically each map of the current room
+			Map[] fullMap = new Map[numRooms];
+			Tile temp = null;
+			
 			while (currRoom < numRooms) {
 				
 				//2d array of tiles - making current map from input
 				Tile[][] currMap = new Tile[numRows][numCols];
 				
+				int room = 0;
+				
 //	//	//	//	//as of now this doesn't account for multiple rooms - need to change this
+				if (temp != null) {
+					currMap[temp.getRow()][temp.getCol()] = temp;
+					temp = null;
+				}
+
 				while (scan.hasNextLine()) {
 					char el = scan.next().charAt(0);
-					Tile obj = new Tile(scan.next().charAt(0), scan.nextInt(), scan.nextInt());
-					scan.next();
-					currMap[]
+					int row = scan.nextInt();
+					int col = scan.nextInt();
+					room = scan.nextInt();
+					System.out.println(room + "  " + currRoom);
+					if (room != currRoom) {
+						temp = new Tile(el, row, col);
+						break;
+					}
+					Tile obj = new Tile(el, row, col);
+					currMap[row][col] = obj;
 				}
+				
+				
+				
+				//storing current map as map object
+				Map map = new Map(currMap, currRoom);
+				//adding the current map to array of map objects
+				fullMap[currRoom] = map;
+				currRoom++;
+				
+				System.out.println(Arrays.deepToString(fullMap));
+
 				
 			}
 			

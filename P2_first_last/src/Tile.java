@@ -4,6 +4,7 @@ public class Tile {
 	private int row, col;
 	private char type;
 	
+
 	public Tile(int row, int col, char type) {
 		super();
 		this.row = row;
