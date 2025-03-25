@@ -13,7 +13,21 @@ public class p2 {
 //		char temp = map[1].getTile(1, 1);
 //		System.out.println(temp);
 		
-		readMapCoor("TestC2");
+//		Map[] mapC = readMapCoor("TestC2");
+//		System.out.println(mapC[0]);
+		
+		
+		//Trying to print stuff
+		for (int room = 0; room < map.length; room++) {
+			Map obj = map[room];
+			for (int row = 0; row < obj.getRows(); row++) {
+				for (int col = 0; col < obj.getCols(); col++) {
+					System.out.print( obj.getTile(row, col) );
+				}
+				System.out.println();
+			}
+		}
+
 	}
 	
 	
@@ -65,6 +79,13 @@ public class p2 {
 				fullMap[currRoom] = map;
 				//going to next room
 				currRoom++;
+				
+//				for (int row = 0; row < currMap.length; row++) {
+//					for (int col = 0; col < currMap[row].length; col++) {
+//						System.out.print(currMap[row][col]);
+//					}
+//					System.out.println();
+//				}
 			}
 			
 			System.out.println(Arrays.deepToString(fullMap));
@@ -82,7 +103,7 @@ public class p2 {
 	
 	
 
-	public static void readMapCoor(String filename) {
+	public static Map[] readMapCoor(String filename) {
 		
 		//for the coor map input files they don't give you ".", insert where empty
 		File mapFile = new File(filename);
@@ -108,7 +129,7 @@ public class p2 {
 				
 				int room = 0;
 				
-//	//	//	//	//as of now this doesn't account for multiple rooms - need to change this
+				//if value stored in temp from loop cutting off @ next room, then insert first
 				if (temp != null) {
 					currMap[temp.getRow()][temp.getCol()] = temp;
 					temp = null;
@@ -119,7 +140,6 @@ public class p2 {
 					int row = scan.nextInt();
 					int col = scan.nextInt();
 					room = scan.nextInt();
-					System.out.println(room + "  " + currRoom);
 					if (room != currRoom) {
 						temp = new Tile(el, row, col);
 						break;
@@ -128,23 +148,24 @@ public class p2 {
 					currMap[row][col] = obj;
 				}
 				
-				
+				System.out.println(Arrays.deepToString(currMap));
 				
 				//storing current map as map object
 				Map map = new Map(currMap, currRoom);
 				//adding the current map to array of map objects
 				fullMap[currRoom] = map;
 				currRoom++;
-				
-				System.out.println(Arrays.deepToString(fullMap));
 
-				
 			}
+			
+			System.out.println(Arrays.deepToString(fullMap));
+			return fullMap;
 			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return null;
 		
 	}
 	

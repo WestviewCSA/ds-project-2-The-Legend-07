@@ -46,11 +46,18 @@ public class Map {
 	}
 
 
-
+	public int getRows() {
+		return map.length;
+	}
+	
+	public int getCols() {
+		return map[0].length;
+	}
 
 
 	public String toString() {
 		return Arrays.deepToString(map);
 	}
 	
+
 }
