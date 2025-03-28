@@ -15,9 +15,15 @@ public class p2 {
 		
 //		Map[] mapC = readMapCoor("TestC2");
 //		System.out.println(mapC[0]);
-		
-		
-		//Trying to print stuff
+
+		printMap(map);
+
+	}
+	
+	
+	
+	
+	public static void printMap(Map[] map) {
 		for (int room = 0; room < map.length; room++) {
 			Map obj = map[room];
 			for (int row = 0; row < obj.getRows(); row++) {
@@ -27,7 +33,6 @@ public class p2 {
 				System.out.println();
 			}
 		}
-
 	}
 	
 	
@@ -46,6 +51,8 @@ public class p2 {
 			//setting initial room = 0
 			int currRoom = 0;
 //			Tile[][][] map = new Tile[numRooms][numRows][numCols];
+			
+			
 			
 			//creating an array of map objects - each map has 2d array of tiles, basically each map of the current room
 			Map[] fullMap = new Map[numRooms];
@@ -68,7 +75,7 @@ public class p2 {
 	//						System.out.println(obj.getType());
 							currMap[rowIndex][i] = obj;
 						}
-						System.out.println(Arrays.deepToString(currMap));
+//						System.out.println(Arrays.deepToString(currMap));
 						rowIndex++;
 					}
 				}
@@ -148,7 +155,7 @@ public class p2 {
 					currMap[row][col] = obj;
 				}
 				
-				System.out.println(Arrays.deepToString(currMap));
+//				System.out.println(Arrays.deepToString(currMap));
 				
 				//storing current map as map object
 				Map map = new Map(currMap, currRoom);
